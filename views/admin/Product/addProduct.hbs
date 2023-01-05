@@ -1,0 +1,271 @@
+{{> Header}}
+
+<div id="layout-wrapper">
+
+    {{!-- Profile --}}
+    {{> Profile}}
+    {{!-- Profile --}}
+
+    {{!-- Sidebar--}}
+    {{> Sidebar}}
+    {{!--Sidebar --}}
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <h4 class="mb-sm-0 font-size-18">Add Product</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Product</a></li>
+                                    <li class="breadcrumb-item active">Add Product</li>
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row" style="margin: auto;">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <form class="needs-validation" enctype="multipart/form-data" id="addProduct">
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="validationCustom01">Product Name</label>
+                                            <input type="text" name="name" class="form-control" id="validationCustom01"
+                                                placeholder="Name">
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="validationCustom02">Product
+                                                Image</label>
+                                            <input type="file" name="images" class="form-control" id="file"
+                                                placeholder="Image" multiple>
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="validationCustom02">Select
+                                                Category</label>
+                                            <select class="form-control" name="category_id" id="catDD">
+                                                <option>Select Category</option>
+                                                {{#each categories}}
+                                                <option value="{{this._id}}">{{this.name}}</option>
+                                                {{/each}}
+                                            </select>
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="mb-3">
+                                            <label class="form-label" for="validationCustom02">Select
+                                                Subcategory</label>
+                                            <select class="form-control" name="subcategory_id" id="subcatDD">
+                                            </select>
+                                            {{!-- JQuery for Subcategory Dropdown --}}
+                                            <script>
+                                                $(document).ready(function () {
+                                                    $('#catDD').on('change', function () {
+                                                        var catId = this.value;
+                                                        console.log(catId)
+                                                        $('#subcatDD').html('');
+                                                        $.ajax({
+                                                            url: `http://localhost:8000/getCategoryId/${catId}`,
+                                                            type: "GET",
+
+                                                            dataType: 'json',
+                                                            success: function (res) {
+                                                                $('#subcatDD').html('<option>Select Subcategory</option>');
+                                                                $.each(res.subcategory, function (key, value) {
+                                                                    $('#subcatDD').append('<option value="' + value._id + '">' + value.name + '</option>')
+
+                                                                })
+                                                            }
+                                                        })
+                                                    })
+
+                                                    $('#subcatDD').on('change', function () {
+                                                        var subcatId = this.value;
+                                                        console.log(subcatId)
+                                                    })
+                                                })
+                                            </script>
+                                            {{!-- JQuery for Subcategory Dropdown --}}
+
+                                            <div class="valid-feedback">
+                                                Looks good!
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="validationCustom01">Product Price</label>
+                                                <input type="text" name="price" class="form-control"
+                                                    id="validationCustom01" placeholder="Price">
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="validationCustom01">Product Screen
+                                                    Size</label>
+                                                <input type="text" name="screenSize" class="form-control"
+                                                    id="validationCustom01" placeholder="Screen
+                                                    Size">
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="validationCustom01">Product Primary
+                                                    Camera</label>
+                                                <input type="text" name="primaryCamera" class="form-control"
+                                                    id="validationCustom01" placeholder="Primary
+                                                    Camera">
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="validationCustom01">Product Secondary
+                                                    Camera</label>
+                                                <input type="text" name="secondaryCamera" class="form-control"
+                                                    id="validationCustom01" placeholder="Secondary Camera">
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="validationCustom01">Product RAM</label>
+                                                <input type="text" name="RAM" class="form-control"
+                                                    id="validationCustom01" placeholder="RAM">
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="validationCustom01">Product
+                                                    Memory</label>
+                                                <input type="text" name="memory" class="form-control"
+                                                    id="validationCustom01" placeholder="Memory">
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="form-label" for="validationCustom01">Product
+                                                    Features</label>
+                                                <input type="text" name="features" class="form-control"
+                                                    id="validationCustom01" placeholder="Features">
+                                                <div class="valid-feedback">
+                                                    Looks good!
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="mb-3">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary" type="submit">Submit form</button>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- end card -->
+                    </div> <!-- end col -->
+                </div>
+                <!-- End Page-content -->
+
+
+                <script>
+
+                    var productForm = $('#addProduct')
+                    $(productForm).submit((event) => {
+                        event.preventDefault();
+                        var formData = {};
+                        $.each($(productForm).serializeArray(), (i, field) => {
+                            formData[field.name] = field.value;
+                        });
+
+                        $.ajax({
+                            url: '/create-product',
+                            type: 'POST',
+                            data: formData,
+                            success: (res) => {
+                                if (res.success === true) {
+                                    console.log(res.msg);
+
+                                    socket.emit('new product', formData);
+
+                                    $(productForm)[0].reset();
+
+                                    formData._id = data._id;
+
+                                } else {
+                                    alert(res.msg)
+                                }
+                            }
+                        })
+                    })
+                </script>
+
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <script>document.write(new Date().getFullYear())</script> © Minia.
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="text-sm-end d-none d-sm-block">
+                                    Design & Develop by <a href="#!" class="text-decoration-underline">Themesbrand</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!-- end main content-->
+        </div>
+        <!-- Right Sidebar -->
+        {{> RightSidebar}}
+        <!-- /Right-bar -->
+
+
+        <div class="rightbar-overlay"></div>
+
+        {{> Footer}}

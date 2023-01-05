@@ -1,0 +1,279 @@
+<div class="middle-inner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-12">
+                <!-- Logo -->
+                <div class="logo" style="gap: 5%;">
+                    <i onclick="openNav()" class="fa-solid fa-bars"
+                        style="font-size: xx-large;cursor:pointer;vertical-align: sub"></i>
+                    <a href="/"><img src="/images/logo.png" alt="logo" style=""></a>
+                    <div id="mySidenav" class="sidenav">
+                        <a href="javascript:void(0)" class="closebtn" style="font-size: 32px;"
+                            onclick="closeNav()">&times;</a>
+                        {{!-- Star DropDown --}}
+                        <style>
+                            .sidebar li {
+                                color: aliceblue;
+                            }
+
+                            .sidebar .text {
+                                color: white;
+                                font-size: 10px;
+                                text-align: center;
+                                letter-spacing: 1px;
+                            }
+
+                            nav ul {
+                                height: 100%;
+                                width: 100%;
+                                list-style: none;
+                                padding-left: 10px;
+                                border: none;
+                            }
+
+                            nav ul li:last-child {
+                                border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+                            }
+
+                            .feat-show {
+                                transition: all 1s;
+                            }
+
+                            nav ul li.active ul {
+                                transition: all 1s;
+                            }
+
+                            nav ul ul {
+                                position: static;
+                                display: none;
+                            }
+
+                            nav ul.show {
+                                display: block;
+                                transition: all 1s;
+                            }
+
+                            nav ul li a span {
+                                top: 50%;
+                                right: 50px;
+                                transform: translateY(-50%);
+                                font-size: 10px;
+                                transition: transform 1s;
+                            }
+
+                            nav ul li a span.rotate {
+                                transform: translateY(-50%) rotate(-180deg);
+                            }
+                        </style>
+                        <nav class="sidebar" style="margin:auto;">
+                            <ul class="main_side">
+                                <li class="active"
+                                    style="text-align: center;font-size:20px;font-weight:bold;margin-bottom:5%;">
+                                    Categories</li>
+                                {{#sidebar}}
+                                <li>
+                                    <a href="#" id="{{catid}}" style=" color:#48afff;margin-bottom:5%;">{{catname}}
+                                        <span class="fas fa-caret-down"></span>
+                                    </a>
+                                    <ul class="item-show-{{catid}}">
+                                        {{#subcategories}}
+                                        <li><a style="font-size:15px !important;color:#48afff;"
+                                                href="/user/shop/{{category_id}}/?brand={{subid}}">{{subname}}</a>
+                                        </li>
+                                        {{/subcategories}}
+                                    </ul>
+                                </li>
+                                {{/sidebar}}
+                            </ul>
+                        </nav>
+                        {{!-- End DropDown --}}
+                        <style>
+                        </style>
+                        <nav class="sidebar" style="margin:-2%;">
+                            <ul class="main_side">
+                                <li class="active"
+                                    style="text-align: center;font-size:20px;font-weight:bold;margin-bottom:5%;">Popular
+                                    List</li>
+                                <li>
+                                    <a href="/user/best?bestPriceUnder=10000"
+                                        style=" color:#48afff;font-size:12px !important;border:1px solid #48afff;width:80%;">
+                                        Best Mobiles Under 10000
+                                    </a>
+                                    <a href="/user/best?bestPriceUnder=20000"
+                                        style=" color:#48afff;font-size:12px !important;border:1px solid #48afff;width:80%;">
+                                        Best Mobiles Under 20000
+                                    </a>
+                                    <a href="/user/best?bestPriceUnder=30000"
+                                        style=" color:#48afff;font-size:12px !important;border:1px solid #48afff;width:80%;">
+                                        Best Mobiles Under 30000
+                                    </a>
+                                    <a href="/user/best?bestPriceUnder=40000"
+                                        style=" color:#48afff;font-size:12px !important;border:1px solid #48afff;width:80%;">
+                                        Best Mobiles Under 40000
+                                    </a>
+                                    <a href="/user/best?bestPriceUnder=50000"
+                                        style=" color:#48afff;font-size:12px !important;border:1px solid #48afff;width:80%;">
+                                        Best Mobiles Under 50000
+                                    </a>
+                                    <a href="/user/best?bestPriceUnder=60000"
+                                        style=" color:#48afff;font-size:12px !important;border:1px solid #48afff;width:80%;">
+                                        Best Mobiles Under 60000
+                                    </a>
+                                    <a href="/user/best?bestPriceUnder=70000"
+                                        style=" color:#48afff;font-size:12px !important;border:1px solid #48afff;width:80%;">
+                                        Best Mobiles Under 70000
+                                    </a>
+                                    <a href="/user/best?bestPriceUnder=80000"
+                                        style=" color:#48afff;font-size:12px !important;border:1px solid #48afff;width:80%;">
+                                        Best Mobiles Under 80000
+                                    </a>
+                                    <a href="/user/best?bestPriceUnder=90000"
+                                        style=" color:#48afff;font-size:12px !important;border:1px solid #48afff;width:80%;">
+                                        Best Mobiles Under 90000
+                                    </a>
+                                    <a href="/user/best?bestPriceUnder=100000"
+                                        style=" color:#48afff;font-size:12px !important;border:1px solid #48afff;width:80%;">
+                                        Best Mobiles Under 100000
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <script>
+
+                    $('.sidebar ul li a').click(function () {
+                        var id = $(this).attr('id');
+                        $('nav ul li ul.item-show-' + id).toggleClass("show");
+                        $('nav ul li #' + id + ' span').toggleClass("rotate");
+
+                    });
+
+                    $('nav ul li').click(function () {
+                        $(this).addClass("active").siblings().removeClass("active");
+                    });
+                </script>
+                <!--/ End Logo -->
+                <!-- Search Form -->
+                <div class="search-top">
+                    <div class="top-search"><a href=""><i class="ti-search"></i></a></div>
+                    <!-- Search Form -->
+                    <div class="search-top">
+                        <form class="search-form">
+                            <input type="text" placeholder="Search here..." name="search">
+                            <button value="search" type="submit"><i class="ti-search"></i></button>
+                        </form>
+                    </div>
+                    <!--/ End Search Form -->
+                </div>
+                <!--/ End Search Form -->
+                <div class="mobile-nav"></div>
+            </div>
+            <div class="col-lg-8 col-md-7 col-12">
+                <div class="search-bar-top">
+                    <div class="search-bar">
+                        <select style="width: 169px;" onchange="window.location.href=this.value;">
+                            <option>All Category</option>
+
+                            {{#each allCategory}}
+                            <option value="http://localhost:8000/user/shop/{{_id}}">
+                                {{name}}
+                            </option>
+                            {{/each}}
+                        </select>
+                        <div>
+                            <input name="search" placeholder="Search Products Here....." type="search" id="input"
+                                style="width:383px;" oninput="searchBar()">
+                            {{!-- <button class="btnn"><i class="ti-search"></i></button> --}}
+                            <div class="list col-md-12" style="position: absolute;">
+                                <div class="list-group" style="position: relative;z-index:10;">
+                                    {{#products}}
+                                    <a href="/user/product-details/{{_id}}" class="list-group-item"
+                                        style="margin-left: 28%;margin-right: 0%;text-align:initial;">
+                                        <tr>
+                                            {{#each_upto images 1}}
+                                            <td><img src="/{{path}}" alt="" style="width:50px;height:50px;"></td>
+                                            {{/each_upto}}
+                                            <td class="search-item-name">{{name}}</td>
+                                        </tr>
+                                    </a>
+                                    {{/products}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-12">
+                <div class="right-bar">
+                    <!-- Search Form -->
+                    {{!-- <div class="sinlge-bar">
+                        <a href="#" class="single-icon"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="sinlge-bar">
+                        <a href="#" class="single-icon"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+                    </div> --}}
+                    <div class="sinlge-bar shopping">
+                        <a href="#" class="single-icon"><i class="ti-bag"></i>
+                            {{#ifNotEquals cart undefined}}
+                            <span class="total-count">{{cart.length}}</span>
+                        </a>
+                        <!-- Shopping Item -->
+                        <div class="shopping-item">
+                            {{#cart}}
+                            <div class="dropdown-cart-header">
+                                {{!-- <span>{{quantity}}</span> --}}
+                                <a href="/user/cart">View Cart</a>
+                            </div>
+                            <ul class="shopping-list">
+                                <li>
+                                    <a href="#" class="remove" title="Remove this item">
+                                        <i class="fa fa-remove"></i>
+                                    </a>
+                                    {{#each_upto image 1}}
+                                    <a class="cart-img" href="#">
+                                        <img src="/{{path}}" alt="{{slug}}">
+                                    </a>
+                                    {{/each_upto}}
+                                    <h4>
+                                        <a href="#">{{name}}</a>
+                                    </h4>
+                                    <p class="quantity">{{quantity}} - <span class="amount">Rs. {{unitPrice}}</span>
+                                    </p>
+                                </li>
+                            </ul>
+                            <div class="bottom">
+                                <div class="total">
+                                    <span>Total</span>
+                                    <span class="total-amount">{{formatPrice unitPrice}}</span>
+                                </div>
+                                <a href="/user/checkout" class="btn animate">Checkout</a>
+                            </div>
+                            {{/cart}}
+                        </div>
+
+                        {{else}}
+                        <span class="total-count">0</span>
+                        </a>
+                        <div class="shopping-item">
+                            <h3>Your cart is empty</h3>
+                        </div>
+                        <!--/ End Shopping Item -->
+                        {{/ifNotEquals}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    /* Set the width of the side navigation to 250px */
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    /* Set the width of the side navigation to 0 */
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+</script>

@@ -1,0 +1,873 @@
+{{> homepage_header}}
+
+<body class="js">
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Preloader -->
+
+    <!-- Header -->
+    <header class="header shop">
+        <!-- Topbar -->
+        {{> preloader}}
+
+        <!-- End Topbar -->
+        {{> homepage_topbar}}
+
+        <!-- Header Inner -->
+        {{> homepage_navbar}}
+        <!--/ End Header Inner -->
+    </header>
+    <!--/ End Header -->
+
+    <!-- Breadcrumbs -->
+    {{> breadcrumbs}}
+    <!-- End Breadcrumbs -->
+
+    <!-- Product Style -->
+    <section class="product-area shop-sidebar shop section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-4 col-12">
+                    <div class="shop-sidebar">
+                        <!-- Single Widget -->
+                        <!-- Express Delivery -->
+                        <form action="/filter-products" method="get">
+                            <!-- Shop By BRANDS -->
+                            <div class="single-widget range">
+                                <h3 class="title">BRANDS</h3>
+                                <ul class="check-box-list">
+                                    {{#each allSubcategory}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <a href="/user/shop/{{category_id}}/?brand={{_id}}">{{name}}</a>
+                                        </label>
+                                    </li>
+                                    {{/each}}
+                                </ul>
+                            </div>
+                            <!--/ End Shop By BRANDS -->
+                            <!--/ End Single Widget -->
+                            <!-- Shop By Price -->
+                            <div class="single-widget range">
+                                <h3 class="title">SET YOUR PRICE RANGE</h3>
+                                <ul class="check-box-list">
+                                    {{#compare priceRange "500-10000"}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=500&pricemax=10000')"
+                                                style="cursor: pointer;" checked>Below Rs. 10000
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=500&pricemax=10000')"
+                                                style="cursor: pointer;">Below Rs. 10000
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare priceRange '10000-20000'}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=10000&pricemax=20000')"
+                                                style="cursor: pointer;" checked>Rs.
+                                            10,000
+                                            - Rs. 20,000</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=10000&pricemax=20000')"
+                                                style="cursor: pointer;">Rs.
+                                            10,000
+                                            - Rs. 20,000</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare priceRange "20000-30000"}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=20000&pricemax=30000')"
+                                                style="cursor: pointer;" checked>Rs.
+                                            20,000
+                                            - Rs. 30,000</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=20000&pricemax=30000')"
+                                                style="cursor: pointer;">Rs.
+                                            20,000
+                                            - Rs. 30,000</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare priceRange "30000-40000"}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox" id="price"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=30000&pricemax=40000')"
+                                                style="cursor: pointer;" checked>Rs.
+                                            30,000
+                                            - Rs. 40,000</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox" id="price"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=30000&pricemax=40000')"
+                                                style="cursor: pointer;">Rs.
+                                            30,000
+                                            - Rs. 40,000</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare priceRange "40000-50000"}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=40000&pricemax=50000')"
+                                                style="cursor: pointer;" checked>Rs.
+                                            40,000
+                                            - Rs. 50,000</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=40000&pricemax=50000')"
+                                                style="cursor: pointer;">Rs.
+                                            40,000
+                                            - Rs. 50,000</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare priceRange "50000-60000"}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=50000&pricemax=60000')"
+                                                style="cursor: pointer;" checked>Rs.
+                                            50,000
+                                            - Rs. 60,000</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=50000&pricemax=60000')"
+                                                style="cursor: pointer;">Rs.
+                                            50,000
+                                            - Rs. 60,000</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare priceRange "60000-70000"}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=60000&pricemax=70000')"
+                                                style="cursor: pointer;" checked>Rs.
+                                            60,000
+                                            - Rs. 70,000</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=60000&pricemax=70000')"
+                                                style="cursor: pointer;">Rs.
+                                            60,000
+                                            - Rs. 70,000</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare priceRange "70000-80000"}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=70000&pricemax=80000')"
+                                                style="cursor: pointer;" checked>Rs.
+                                            70,000
+                                            - Rs. 80,000</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=70000&pricemax=80000')"
+                                                style="cursor: pointer;">Rs.
+                                            70,000
+                                            - Rs. 80,000</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare priceRange "80000-90000"}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=80000&pricemax=90000')"
+                                                style="cursor: pointer;" checked>Rs.
+                                            80,000
+                                            - Rs. 90,000</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=80000&pricemax=90000')"
+                                                style="cursor: pointer;">Rs.
+                                            80,000
+                                            - Rs. 90,000</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare priceRange "90000-4000000"}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=90000&pricemax=4000000')"
+                                                style="cursor: pointer;" checked></a>Above Rs. 90000
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?pricemin=90000&pricemax=4000000')"
+                                                style="cursor: pointer;"></a>Above Rs. 90000
+                                    </li>
+                                    {{/compare}}
+                                </ul>
+                            </div>
+                            <!--/ End Shop By Price -->
+                            <!-- Shop By Camera -->
+                            <div class="single-widget range">
+                                <h3 class="title">PRIMARY CAMERA</h3>
+                                <ul class="check-box-list">
+                                    {{#compare cameraRange '4-8'}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?primaryCameraMin=4&primaryCameraMax=8')"
+                                                style="cursor: pointer;" checked>MINIMUM
+                                            4MP</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?primaryCameraMin=4&primaryCameraMax=8')"
+                                                style="cursor: pointer;">MINIMUM
+                                            4MP</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare cameraRange '8-13'}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?primaryCameraMin=8&primaryCameraMax=13')"
+                                                style="cursor: pointer;" checked>MINIMUM
+                                            8MP</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?primaryCameraMin=8&primaryCameraMax=13')"
+                                                style="cursor: pointer;">MINIMUM
+                                            8MP</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare cameraRange '13-10000'}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?primaryCameraMin=13&primaryCameraMax=10000')"
+                                                style="cursor: pointer;" checked>MINIMUM
+                                            13MP</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?primaryCameraMin=13&primaryCameraMax=10000')"
+                                                style="cursor: pointer;">MINIMUM
+                                            13MP</label>
+                                    </li>
+                                    {{/compare}}
+                                </ul>
+                            </div>
+                            <!--/ Shop By Camera -->
+                            <!-- Shop By RAM -->
+                            <div class="single-widget range">
+                                <h3 class="title">RAM</h3>
+                                <ul class="check-box-list">
+                                    {{#compare ramBelowRange "1" }}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?minRam=1')"
+                                                style="cursor: pointer;" checked>1
+                                            GB
+                                            or Less</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?minRam=1')"
+                                                style="cursor: pointer;">1
+                                            GB
+                                            or Less</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare ramRange "2" }}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?ram=2')"
+                                                style="cursor: pointer;" checked>2
+                                            GB</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?ram=2')"
+                                                style="cursor: pointer;">2
+                                            GB</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare ramRange "3" }}
+
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?ram=3')"
+                                                style="cursor: pointer;" checked>3
+                                            GB</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?ram=3')"
+                                                style="cursor: pointer;">3
+                                            GB</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare ramRange "4" }}
+
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?ram=4')"
+                                                style="cursor: pointer;" checked>4
+                                            GB</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?ram=4')"
+                                                style="cursor: pointer;">4
+                                            GB</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare ramAboveRange "6" }}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?maxRam=6')"
+                                                style="cursor: pointer;" checked>6
+                                            GB
+                                            Above</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?maxRam=6')"
+                                                style="cursor: pointer;">6
+                                            GB
+                                            Above</label>
+                                    </li>
+                                    {{/compare}}
+                                </ul>
+                            </div>
+                            <!-- Shop By RAM -->
+                            <!-- Shop By Storage -->
+                            <div class="single-widget range">
+                                <h3 class="title">Memory</h3>
+                                <ul class="check-box-list">
+                                    {{#compare memoryRange '4'}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?memory=4')"
+                                                style="cursor: pointer;" checked>4
+                                            GB</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?memory=4')"
+                                                style="cursor: pointer;">4
+                                            GB</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare memoryRange '8'}}
+
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?memory=8')"
+                                                style="cursor: pointer;" checked>8
+                                            GB</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?memory=8')"
+                                                style="cursor: pointer;">8
+                                            GB</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare memoryRange '16'}}
+
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?memory=16')"
+                                                style="cursor: pointer;" checked>16
+                                            GB</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?memory=16')"
+                                                style="cursor: pointer;">16
+                                            GB</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare memoryRange '32'}}
+
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?memory=32')"
+                                                style="cursor: pointer;" checked>32
+                                            GB</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?memory=32')"
+                                                style="cursor: pointer;">32
+                                            GB</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare memoryRange '64'}}
+
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?memory=64')"
+                                                style="cursor: pointer;" checked>64
+                                            GB</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?memory=64')"
+                                                style="cursor: pointer;">64
+                                            GB</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare memoryRange '128'}}
+
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?memory=128')"
+                                                style="cursor: pointer;" checked>128
+                                            GB</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?memory=128')"
+                                                style="cursor: pointer;">128
+                                            GB</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare memoryRange '256'}}
+
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?memory=256')"
+                                                style="cursor: pointer;" checked>256
+                                            GB</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?memory=256')"
+                                                style="cursor: pointer;">256
+                                            GB</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare memoryRange '512'}}
+
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?memory=512')"
+                                                style="cursor: pointer;" checked>512
+                                            GB</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?memory=512')"
+                                                style="cursor: pointer;">512
+                                            GB</label>
+                                    </li>
+                                    {{/compare}}
+                                </ul>
+                            </div>
+                            <!-- Shop By Storage -->
+
+                            <div class="single-widget range">
+                                <h3 class="title">SCREEN SIZE</h3>
+                                <ul class="check-box-list">
+                                    {{#compare screenRange '2-4'}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?maxScreenSize=4&minScreenSize=2')"
+                                                style="cursor: pointer;"></a>4
+                                            inch and below</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?maxScreenSize=4&minScreenSize=2')"
+                                                style="cursor: pointer;"></a>4
+                                            inch and below</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare screenRange '4-4.5'}}
+
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?minScreenSize=4&maxScreenSize=4.5')"
+                                                style="cursor: pointer;">4.0
+                                            inch to 4.5 inch</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?minScreenSize=4&maxScreenSize=4.5')"
+                                                style="cursor: pointer;">4.0
+                                            inch to 4.5 inch</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare screenRange '4.5-5'}}
+
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?minScreenSize=4.5&maxScreenSize=5')"
+                                                style="cursor: pointer;">4.5
+                                            inch to 5.0 inch</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?minScreenSize=4.5&maxScreenSize=5')"
+                                                style="cursor: pointer;">4.5
+                                            inch to 5.0 inch</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare screenRange '5-5.5'}}
+
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?minScreenSize=5&maxScreenSize=5.5')"
+                                                style="cursor: pointer;">5.0
+                                            inch to 5.5 inch</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?minScreenSize=5&maxScreenSize=5.5')"
+                                                style="cursor: pointer;">5.0
+                                            inch to 5.5 inch</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare screenRange '5.5-6.9'}}
+
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?minScreenSize=5.5&maxScreenSize=6.9')"
+                                                style="cursor: pointer;">5.5
+                                            inch to 6.9 inch</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?minScreenSize=5.5&maxScreenSize=6.9')"
+                                                style="cursor: pointer;">5.5
+                                            inch to 6.9 inch</label>
+                                    </li>
+                                    {{/compare}}
+                                </ul>
+                            </div>
+
+                            <!-- Shop By Screen Size  -->
+                            <!-- Sorting -->
+                            <div class="single-widget range">
+                                <h3 class="title">Sorting</h3>
+                                <ul class="check-box-list">
+                                    {{#compare sortRange '1'}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?sort=1')"
+                                                style="cursor: pointer;" checked>Prices (Low to High)</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?sort=1')"
+                                                style="cursor: pointer;">Prices (Low to High)</label>
+                                    </li>
+                                    {{/compare}}
+                                    {{#compare sortRange '2'}}
+                                    <li>
+                                        <label class="checkbox-inline" for="1">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?sort=2')"
+                                                style="cursor: pointer;" checked>Prices (High to Low)</label>
+                                    </li>
+                                    {{else}}
+                                    <li>
+                                        <label class="checkbox-inline" for="2">
+                                            <input name="news" type="checkbox"
+                                                onclick="filterChecked('http://localhost:8000/user/shop/{{catID}}/?sort=2')"
+                                                style="cursor: pointer;">Prices (High to Low)</label>
+                                    </li>
+                                    {{/compare}}
+
+                                </ul>
+                            </div>
+                        </form>
+                        <script>
+                            function filterChecked(url) {
+                                console.log({ url })
+                                window.location = url;
+
+                                return true;
+                            }
+                        </script>
+                        <!-- End Sorting  -->
+                    </div>
+                </div>
+                <div class="col-lg-9 col-md-8 col-12">
+                    <div class="row">
+                        {{#products}}
+                        <div class="col-lg-4 col-md-6 col-12">
+                            <div class="single-product">
+                                <div class="product-img">
+                                    <a href="/user/product-details/{{_id}}">
+                                        {{#each_upto images 1}}
+                                        <img class="default-img" src="/{{path}}" alt="{{slug}}">
+                                        <img class="hover-img" src="/{{path}}" alt="{{slug}}">
+                                        {{/each_upto}}
+                                    </a>
+                                    <div class="button-head">
+                                        <div class="product-action">
+                                            <a data-toggle="modal" data-target="#exampleModal-{{_id}}"
+                                                title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick
+                                                    Shop</span></a>
+                                            <a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to
+                                                    Wishlist</span></a>
+                                            <a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to
+                                                    Compare</span></a>
+                                        </div>
+                                        <div class="product-action-2">
+                                            <a title="Add to cart" href="/user/cart/{{slug}}">Add to cart</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-content">
+                                    <h3><a href="product-details.html">{{name}}</a></h3>
+                                    <div class="product-price">
+                                        <span>{{formatPrice price}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {{/products}}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    <!--/ End Product Style 1  -->
+
+    <!-- Start Shop Newsletter  -->
+    <section class="shop-newsletter section">
+        <div class="container">
+            <div class="inner-top">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 col-12">
+                        <!-- Start Newsletter Inner -->
+                        <div class="inner">
+                            <h4>Newsletter</h4>
+                            <p> Subscribe to our newsletter and get <span>10%</span> off your first purchase</p>
+                            <form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
+                                <input name="EMAIL" placeholder="Your email address" required="" type="email">
+                                <button class="btn">Subscribe</button>
+                            </form>
+                        </div>
+                        <!-- End Newsletter Inner -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Shop Newsletter -->
+
+
+
+    <!-- Modal -->
+    {{#products}}
+    <div class="modal fade" id="exampleModal-{{_id}}" tabindex="" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span class="ti-close"
+                            aria-hidden="true"></span></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row no-gutters">
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                            <!-- Product Slider -->
+                            <div class="product-gallery">
+                                <div class="quickview-slider-active">
+                                    {{#each_upto images 3}}
+                                    <div class="single-slider">
+                                        <img src="/{{path}}" alt="{{slug}}" style="width: 568px;height:500px;">
+                                    </div>
+                                    {{/each_upto}}
+                                </div>
+                            </div>
+                            <!-- End Product slider -->
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                            <div class="quickview-content">
+                                <h2>{{name}}</h2>
+                                <div class="quickview-ratting-review">
+                                    <div class="quickview-ratting-wrap">
+                                        <div class="quickview-ratting">
+                                            <i class="yellow fa fa-star"></i>
+                                            <i class="yellow fa fa-star"></i>
+                                            <i class="yellow fa fa-star"></i>
+                                            <i class="yellow fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <a href="#"> (1 customer review)</a>
+                                    </div>
+                                    <div class="quickview-stock">
+                                        <span><i class="fa fa-check-circle-o"></i> in stock</span>
+                                    </div>
+                                </div>
+                                <h3>{{formatPrice price}}</h3>
+                                <div class="quickview-peragraph">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia iste laborum
+                                        ad impedit pariatur esse optio tempora sint ullam autem deleniti nam in quos qui
+                                        nemo ipsum numquam.</p>
+                                </div>
+                                {{!-- <div class="size">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-12">
+                                            <h5 class="title">Color</h5>
+                                            <select>
+                                                <option>purple</option>
+                                                <option>black</option>
+                                                <option>pink</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div> --}}
+                                <div class="quantity">
+                                    <!-- Input Order -->
+                                    <div class="input-group">
+                                        <div class="button minus">
+                                            <button type="button" class="btn btn-primary btn-number" disabled="disabled"
+                                                data-type="minus" data-field="quant[1]">
+                                                <i class="ti-minus"></i>
+                                            </button>
+                                        </div>
+                                        <input type="text" name="quant[1]" class="input-number" data-min="1"
+                                            data-max="1000" value="1">
+                                        <div class="button plus">
+                                            <button type="button" class="btn btn-primary btn-number" data-type="plus"
+                                                data-field="quant[1]">
+                                                <i class="ti-plus"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <!--/ End Input Order -->
+                                </div>
+                                <div class="add-to-cart">
+                                    <a href="/user/cart/{{slug}}" class="btn">Add to cart</a>
+                                    <a href="#" class="btn min"><i class="ti-heart"></i></a>
+                                    <a href="#" class="btn min"><i class="fa fa-compress"></i></a>
+                                </div>
+                                <div class="default-social">
+                                    <h4 class="share-now">Share:</h4>
+                                    <ul>
+                                        <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a class="youtube" href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                        <li><a class="dribbble" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/products}}
+    <!-- Modal end -->
+
+    {{> homeFooterDetails}}
+    {{> homepage_footer}}

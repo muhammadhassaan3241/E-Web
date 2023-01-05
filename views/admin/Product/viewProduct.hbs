@@ -1,0 +1,113 @@
+{{> Header}}
+
+<div id="layout-wrapper">
+
+    {{!-- Profile --}}
+    {{> Profile}}
+    {{!-- Profile --}}
+
+    {{!-- Sidebar--}}
+    {{> Sidebar}}
+    {{!--Sidebar --}}
+
+    <!-- ============================================================== -->
+    <!-- Start right Content here -->
+    <!-- ============================================================== -->
+    <div class="main-content">
+
+        <div class="page-content">
+            <div class="container-fluid">
+
+                <!-- start page title -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+                            <h4 class="mb-sm-0 font-size-18">View Product</h4>
+
+                            <div class="page-title-right">
+                                <ol class="breadcrumb m-0">
+                                    <li class="breadcrumb-item"><a href="javascript: void(0);">Product</a></li>
+                                    <li class="breadcrumb-item active">View Product</li>
+                                </ol>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- end page title -->
+
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Product Datatable</h4>
+                                <p class="card-title-desc">
+                                </p>
+                            </div>
+                            <div class="card-body">
+
+                                <table id="datatable" class="table table-bordered dt-responsive  nowrap w-100">
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Image</th>
+                                            <th>Category</th>
+                                            <th>Subcategory</th>
+                                            <th>Created At</th>
+                                            <th>Price</th>
+                                        </tr>
+                                    </thead>
+
+
+                                    <tbody>
+                                        {{#each products}}
+                                        <tr>
+                                            <td>{{name}}</td>
+                                            {{#each_upto images 1}}
+                                            <td><img src="/{{path}}" alt="" style="height: 70px;width: 70px;"></td>
+                                            {{/each_upto}}
+                                            <td>{{category_id.name}}</td>
+                                            <td>{{subcategory_id.name}}</td>
+                                            <td>{{createdAt}}</td>
+                                            <td>Rs. {{price}}</td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div> <!-- end col -->
+                </div> <!-- end ro
+                <!-- container-fluid -->
+            </div>
+            <!-- End Page-content -->
+
+
+            <footer class=" footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <script>document.write(new Date().getFullYear())</script> ©
+                            Minia.
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="text-sm-end d-none d-sm-block">
+                                Design & Develop by <a href="#!" class="text-decoration-underline">Themesbrand</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- end main content-->
+    </div>
+
+    <!-- Right Sidebar -->
+    {{> RightSidebar}}
+    <!-- /Right-bar -->
+
+
+    <div class="rightbar-overlay"></div>
+
+    {{> Footer}}

@@ -1,0 +1,329 @@
+{{> homepage_header}}
+
+<body class="js">
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Preloader -->
+
+
+    <!-- Header -->
+    <header class="header shop">
+        <!-- Topbar -->
+        {{> preloader}}
+        <!-- End Topbar -->
+        {{> homepage_topbar}}
+        <!-- Header Inner -->
+        {{> homepage_navbar}}
+
+        <!--/ End Header Inner -->
+    </header>
+    <!--/ End Header -->
+
+    <!-- Slider Area -->
+    <section class="hero-slider">
+        <!-- Single Slider -->
+        <div class="single-slider">
+            <img src="/images/carousel 1.jpeg" alt="" style="position:absolute;width:1920px;height:520px;">
+            <div class="container">
+                <div class="row no-gutters">
+                    <div class="col-lg-9 offset-lg-3 col-12">
+                        <div class="text-inner">
+                            <div class="row">
+                                <div class="col-lg-7 col-12">
+                                    <div class="hero-text">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/ End Single Slider -->
+    </section>
+    <!--/ End Slider Area -->
+
+    <!-- Start Small Banner  -->
+    {{!-- <section class="small-banner section">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- Single Banner  -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="single-banner">
+                        <img src="https://via.placeholder.com/600x370" alt="#">
+                        <div class="content">
+                            <p>Man's Collectons</p>
+                            <h3>Summer travel <br> collection</h3>
+                            <a href="#">Discover Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /End Single Banner  -->
+                <!-- Single Banner  -->
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="single-banner">
+                        <img src="https://via.placeholder.com/600x370" alt="#">
+                        <div class="content">
+                            <p>Bag Collectons</p>
+                            <h3>Awesome Bag <br> 2020</h3>
+                            <a href="#">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /End Single Banner  -->
+                <!-- Single Banner  -->
+                <div class="col-lg-4 col-12">
+                    <div class="single-banner tab-height">
+                        <img src="https://via.placeholder.com/600x370" alt="#">
+                        <div class="content">
+                            <p>Flash Sale</p>
+                            <h3>Mid Season <br> Up to <span>40%</span> Off</h3>
+                            <a href="#">Discover Now</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- /End Single Banner  -->
+            </div>
+        </div>
+    </section> --}}
+    <!-- End Small Banner -->
+
+    <!-- Start Product Area -->
+    <div class="product-area section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h2>Categories</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="product-info">
+                        <div class="nav-main">
+                            <!-- Tab Nav -->
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <style>
+                                    li .nav-item:hover {
+                                        color: orange;
+                                    }
+                                </style>
+                                {{#each allCategory}}
+                                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#man"
+                                        role="tab">{{name}}</a></li>
+                                {{/each}}
+                            </ul>
+                            <!--/ End Tab Nav -->
+                        </div>
+                        <div class="tab-content" id="myTabContent">
+                            <!-- Start Single Tab -->
+                            <div class="tab-pane fade show active" id="man{{category_id}}" role="tabpanel">
+                                <div class="tab-single">
+                                    <div class="row">
+                                        {{#products}}
+                                        <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                            <div class="single-product">
+                                                <div class="product-img">
+                                                    <a href="/user/product-details/{{_id}}">
+                                                        {{#each_upto images 1}}
+                                                        <img class="default-img" src="{{path}}" alt="{{slug}}">
+                                                        <img class="hover-img" src="{{path}}" alt="{{slug}}">
+                                                        {{/each_upto}}
+                                                    </a>
+                                                    <div class="button-head">
+                                                        <div class="product-action-2">
+                                                            <a title="Add to cart" href="/user/cart/{{slug}}">Add to
+                                                                cart</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content">
+                                                    <h3><a href="/user/product-details/{{_id}}">{{name}}</a></h3>
+                                                    <div class="product-price">
+                                                        <span>{{formatPrice price}}</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        {{/products}}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Product Area -->
+
+    <!-- Start Most Popular -->
+    <div class="product-area most-popular section products">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-title">
+                        <h2>Hot Item</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-12">
+                    <div class="owl-carousel popular-slider">
+                        <!-- Start Single Product -->
+                        {{#products}}
+                        <div class="single-product">
+                            <div class="product-img">
+                                {{#each_upto images 1}}
+                                <a href="product-details.html">
+                                    <img class="default-img" src="/{{path}}" alt="{{slug}}">
+                                    <img class="hover-img" src="/{{path}}" alt="{{slug}}">
+                                    {{!-- <span class="out-of-stock">Hot</span> --}}
+                                </a>
+                                {{/each_upto}}
+                                <div class="button-head">
+                                    <div class="product-action-2">
+                                        <a title="Add to cart" href="/user/cart/{{slug}}">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <h3><a href="product-details.html">{{name}}</a></h3>
+                                <div class="product-price">
+
+                                    <span id="price-{{price}}">{{formatPrice price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        {{/products}}
+                        <!-- End Single Product -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Most Popular Area -->
+
+    <!-- Start Shop Services Area -->
+    <section class="shop-services section home">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="ti-rocket"></i>
+                        <h4>Free shiping</h4>
+                        <p>Orders over $100</p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="ti-reload"></i>
+                        <h4>Free Return</h4>
+                        <p>Within 30 days returns</p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="ti-lock"></i>
+                        <h4>Sucure Payment</h4>
+                        <p>100% secure payment</p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+                <div class="col-lg-3 col-md-6 col-12">
+                    <!-- Start Single Service -->
+                    <div class="single-service">
+                        <i class="ti-tag"></i>
+                        <h4>Best Peice</h4>
+                        <p>Guaranteed price</p>
+                    </div>
+                    <!-- End Single Service -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Shop Services Area -->
+    <!-- Start Shop Newsletter  -->
+    <section class="shop-newsletter section">
+        <div class="container">
+            <div class="inner-top">
+                <div class="row">
+                    <div class="col-lg-8 offset-lg-2 col-12">
+                        <!-- Start Newsletter Inner -->
+                        <div class="inner">
+                            <h4>Newsletter</h4>
+                            <p> Subscribe to our newsletter and get <span>10%</span> off your first purchase</p>
+                            <form action="mail/mail.php" method="get" target="_blank" class="newsletter-inner">
+                                <input name="EMAIL" placeholder="Your email address" required="" type="email">
+                                <button class="btn">Subscribe</button>
+                            </form>
+                        </div>
+                        <!-- End Newsletter Inner -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Shop Newsletter -->
+    <script>
+        var socket = io();
+
+        /*socket.on('connection', (socket) => {
+            console.log("socket connected");
+        })*/
+
+        socket.on('new_product', (formData) => {
+            console.log('socket new product recieved');
+            console.log(formData)
+            var html = "";
+            html += `<div class="row ">
+                <div class="col-12">
+                    <div class="owl-carousel popular-slider">
+                        <!-- Start Single Product -->
+                        <div class="single-product">
+                            <div class="product-img">
+                                {{#each_upto images 1}}
+                                <a href="product-details.html">
+                                    <img class="default-img" src="/{{path}}" alt="{{slug}}">
+                                    <img class="hover-img" src="/{{path}}" alt="{{slug}}">
+                                    {{!-- <span class="out-of-stock">Hot</span> --}}
+                                </a>
+                                {{/each_upto}}
+                                <div class="button-head">
+                                    <div class="product-action-2">
+                                        <a title="Add to cart" href="/user/cart/{{slug}}">Add to cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-content">
+                                <h3><a href="product-details.html"></a></h3>
+                                <div class="product-price">
+
+                                    <span id="price-{{price}}">{{formatPrice price}}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Single Product -->
+                    </div>
+                </div>
+            </div>`;
+
+            $('.products').prepend(html)
+        })
+    </script>
+
+    {{> homeFooterDetails}}
+    {{> homepage_footer}}

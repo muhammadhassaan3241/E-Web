@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Eshop - {{title}}</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="/images/icons/favicon.ico" />
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/vendor/animsition/css/animsition.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css">
+    <!--===============================================================================================-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+        integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--===============================================================================================-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-ajaxy/1.6.1/scripts/jquery.ajaxy.min.js"
+        integrity="sha512-bztGAvCE/3+a1Oh0gUro7BHukf6v7zpzrAb3ReWAVrt+bVNNphcl2tDTKCBr5zk7iEDmQ2Bv401fX3jeVXGIcA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--===============================================================================================-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"
+        integrity="sha512-YeeA/Qxn5hYdkukScTCNNOhTrv1C2RubAGButJ1rmgQwZf/HdRaCGl+JAVkqsqaNRaYNHdheiuKKuPf9mDcqKg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="/css/util.css">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+    <link rel="stylesheet" type="text/css" href="/css/login.css">
+    <!--===============================================================================================-->
+</head>
+
+<body style="background-color: #666666;">
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Preloader -->
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100">
+                <form class="login100-form validate-form" id="loginForm">
+                    <span class="login100-form-title p-b-43">
+                        Login to continue
+                    </span>
+
+
+                    {{!-- <div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
+                        <input class="input100" type="text" name="email"><i class="fa fa-email"></i>
+                        <span class="focus-input100"></span>
+                        <span class="label-input100">Email</span>
+                    </div> --}}
+
+                    <div class="main">
+
+                        <div class="form-group has-search">
+                            <span class="fa fa-envelope form-control-feedback"></span>
+                            <input type="email" class="form-control" name="email">
+                        </div>
+                    </div>
+                    <div class="main">
+
+                        <div class="form-group has-search">
+                            <span class="fa fa-lock form-control-feedback"></span>
+                            <input type="password" class="form-control" name="password">
+                        </div>
+                    </div>
+
+                    <div class="flex-sb-m w-full p-t-3 p-b-32">
+                        <div class="contact100-form-checkbox">
+                            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                            <label class="label-checkbox100" for="ckb1">
+                                Remember me
+                            </label>
+                        </div>
+
+                        <div>
+                            <a href="/user/forgot-password" class="txt1">
+                                Forgot Password?
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="container-login100-form-btn">
+                        <button class="login100-form-btn" style="background-color: #F7941D;">
+                            Login
+                        </button>
+                    </div>
+
+                    <div class="text-center p-t-46 p-b-20">
+                        <a href="/user/sign-up" class="txt2" style="cursor:pointer;">
+                            <b>Register Now?</b>
+                        </a>
+                    </div>
+                </form>
+                <script>
+                    var loginForm = $('#loginForm')
+                    $(loginForm).submit((event) => {
+                        event.preventDefault();
+                        var formData = {};
+                        $.each($(loginForm).serializeArray(), (i, field) => {
+                            formData[field.name] = field.value;
+                        });
+                        $.ajax({
+                            url: '/user/login',
+                            type: 'POST',
+                            data: formData,
+                            success: (res) => {
+                                if (res.success === true) {
+                                    //alert(res.msg)
+                                    window.location = "http://localhost:8000/";
+                                    socket.emit('user_login', formData);
+                                } else {
+                                    alert(res.msg)
+                                    $(loginForm)[0].reset();
+                                }
+                            }
+                        })
+                    })
+                </script>
+                <div class="login100-more w-auto" style="background-image: url('/images/carousel\ 2.png');">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{> homepage_footer}}

@@ -1,0 +1,139 @@
+{{> homepage_header}}
+
+<body class="js">
+
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="preloader-inner">
+            <div class="preloader-icon">
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Preloader -->
+
+    <!-- Header -->
+    <header class="header shop">
+        <!-- Topbar -->
+        {{> preloader}}
+
+        <!-- End Topbar -->
+        {{> homepage_topbar}}
+
+        <!-- Header Inner -->
+        {{> homepage_navbar}}
+        <!--/ End Header Inner -->
+    </header>
+    <!--/ End Header -->
+
+    <!-- Breadcrumbs -->
+    {{> breadcrumbs}}
+    <!-- End Breadcrumbs -->
+    {{#singleProduct}}
+    <div class="wrapper" id="exampleModal-{{_id}}" tabindex="" role="dialog">
+        <div class="content">
+            <div class="header">
+            </div>
+            <div class="body">
+                <div class="row no-gutters">
+                    <div class="col-lg-6 col-md-10 col-sm-12 col-xs-12">
+                        <!-- Product Slider -->
+                        <div class="product-gallery" style="margin-left: 15% auto;">
+                            <div class="quickview-slider-active">
+                                {{#images}}
+                                <div class="single-slider">
+                                    <img class="single-slider-image" src="/{{path}}" alt="{{slug}}">
+                                </div>
+                                {{/images}}
+                            </div>
+                        </div>
+                        <!-- End Product slider -->
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                        <div class="quickview-content">
+                            <h2>{{name}}</h2>
+                            <div class="quickview-ratting-review">
+                                <div class="quickview-ratting-wrap">
+                                    <div class="quickview-ratting">
+                                        <i class="yellow fa fa-star"></i>
+                                        <i class="yellow fa fa-star"></i>
+                                        <i class="yellow fa fa-star"></i>
+                                        <i class="yellow fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <a href="#"> (1 customer review)</a>
+                                </div>
+                                <div class="quickview-stock">
+                                    <span><i class="fa fa-check-circle-o"></i> in stock</span>
+                                </div>
+                            </div>
+                            <h3>{{formatPrice price}}</h3>
+                            <div class="quickview-peragraph">
+                                <p>{{description}}</p>
+                            </div>
+                            {{!-- <div class="size">
+                                <div class="row">
+                                    <div class="col-lg-6 col-12">
+                                        <h5 class="title">Color</h5>
+                                        <select>
+                                            <option>purple</option>
+                                            <option>black</option>
+                                            <option>pink</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div> --}}
+                            <div class="add-to-cart">
+                                <a href="/user/cart/{{slug}}" class="btn">Add to cart</a>
+                                <a href="#" class="btn min"><i class="ti-heart"></i></a>
+                                <a href="#" class="btn min"><i class="fa fa-compress"></i></a>
+                            </div>
+                            <div class="default-social">
+                                <h4 class="share-now">Share:</h4>
+                                <ul>
+                                    <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a class="youtube" href="#"><i class="fa fa-pinterest-p"></i></a></li>
+                                    <li><a class="dribbble" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-9">
+                                <ul class="menu-items">
+                                    {{!-- <li class="active">Detalle del producto</li>
+                                    <li>Garantía</li>
+                                    <li>Vendedor</li>
+                                    <li>Envío</li> --}}
+                                </ul>
+                                <div style="width:100%;border-top:1px solid silver">
+                                    <p style="padding:15px;">
+                                        <small>
+                                            {{description}}
+                                        </small>
+                                    </p>
+                                    <small>
+                                        <ul>
+                                            <li><b>Front Camera: </b>{{primaryCamera}} MP</li>
+                                            <li><b>Back Camera: </b>{{secondaryCamera}}</li>
+                                            <li><b>Screen Size: </b>{{screenSize}} Inches</li>
+                                            <li><b>RAM: </b>{{RAM}} GB</li>
+                                            <li><b>Memory: </b>{{memory}} GB</li>
+                                            <li><b>Features: </b>{{features}}</li>
+                                        </ul>
+                                    </small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/singleProduct}}
+
+
+    {{> homeFooterDetails}}
+
+
+
+    {{> homepage_footer}}

@@ -1,9 +1,9 @@
-const { Utils } = require('handlebars');
 const { Category, Subcategory, Product } = require("../../models/admin/cat-subcat-pro.model");
 const { Logged } = require('../../configurations/user/utilities/verifyToken');
 const router = require("express").Router();
 const util = require('util');
 const Cryptr = require('cryptr');
+const { Cart } = require('../../models/user/cart.model');
 
 
 router.get("/contact", authorize, (req, res) => {
@@ -32,8 +32,13 @@ router.get("/checkout", Logged, async (req, res) => {
 })
 
 router.get("/cart", authorize, Logged, async (req, res) => {
-
-    res.render('user/cart', { title: "Cart" })
+    const cart = await Cart.findOne({ userId: req.user._id })
+    const items = [];
+    cart.items.filter((c) => {
+        const total = (c.quantity) * c.price;
+        items.push({ id: c.id, name: c.name, quantity: c.quantity, price: c.price, image: c.image, total: total })
+    })
+    res.render('user/cart', { title: "Cart", cart: items })
 })
 
 router.get('/terms&conditions', async (req, res, next) => {

@@ -4,8 +4,8 @@ const { createCart, deleteCart, updateCart } = require('../../controllers/user/c
 const router = require('express').Router();
 
 
-router.get('/cart/:slug', Logged, createCart)
-router.get('/delete/:slug', Logged, deleteCart)
-router.get('/update/:slug', Logged, updateCart)
+router.get('/cart/:id', Logged, createCart)
+router.get('/delete/:id', Logged, deleteCart)
+router.get('/update/:id', Logged, updateCart)
 module.exports = router;
 

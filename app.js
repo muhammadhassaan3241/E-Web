@@ -134,8 +134,9 @@ app.set('view engine', 'hbs')
 //HBS
 
 // Cart
-app.use("*", (req, res, next) => {
-    res.locals.cart = req.session.cart;
+app.use("*", async (req, res, next) => {
+    const cart = await Cart.find();
+    res.locals.userCart = cart;
     next()
 });
 // Cart
@@ -183,8 +184,9 @@ app.use('/', productRoutes)
 const roleRoutes = require('./routers/admin/role.routes')
 app.use('/', roleRoutes)
 const permissionRoutes = require('./routers/admin/permission.routes');
-const responseMiddleware = require('./middlewares/user/cart.mw');
 const { all } = require('./pages/user/pages');
+const { Cart } = require('./models/user/cart.model');
+const { logger } = require('handlebars');
 app.use('/', permissionRoutes)
 
 

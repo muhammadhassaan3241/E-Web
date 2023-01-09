@@ -110,7 +110,6 @@ module.exports = {
     loginUser: async (req, res) => {
         try {
             const { email, phone, password } = req.body;
-            console.log(email);
             const user = await User.findOne({ email: email } || { phone: phone });
             if (!user) {
                 res.send({ success: false, msg: 'no user for that email' })
